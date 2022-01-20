@@ -93,7 +93,7 @@ CREATE TABLE cast (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     person_id INTEGER,
     movie_id INTEGER,
-    billed_amount INTEGER
+    billed_amount INTEGER,
     movie_role TEXT
 );
 
@@ -114,17 +114,24 @@ INSERT INTO person VALUES (1,'Christian', 'Bale'), (2,'Bruce', 'Wayne'), (3,'Mic
 (16,'Aaron', 'Eckhart'), (17,'Harvey', 'Dent'), (18,'Maggie', 'Gyllenhaal'),
 (19,'Selina', 'Kyle'), (20,'John', 'Blake'), (21,'Anne', 'Hathaway');
 
-INSERT INTO cast VALUES (1,1,1, $15,000,000, 'Actor')
--- Batman Begins          Christian Bale        Bruce Wayne
--- Batman Begins          Michael Caine         Alfred
--- Batman Begins          Liam Neeson           Ra's Al Ghul
--- Batman Begins          Katie Holmes          Rachel Dawes
--- Batman Begins          Gary Oldman           Commissioner Gordon
--- The Dark Knight        Christian Bale        Bruce Wayne
--- The Dark Knight        Heath Ledger          Joker
--- The Dark Knight        Aaron Eckhart         Harvey Dent
--- The Dark Knight        Michael Caine         Alfred
--- The Dark Knight        Maggie Gyllenhaal     Rachel Dawes
+INSERT INTO cast VALUES (1,1,1, 15000000), (2,2,1, 13000000), 
+(3,3,1, 12000000), (4,4,1, 11000000), 
+(5,5,1, 10000000), (6,6,1, 9000000), 
+(7,7,1, 8000000), (8,8,1, 7000000), 
+(9,9,1, 6000000), (10,10,1, 5000000),
+
+(11,1,2, 20000000), (12,2,2, 19000000), 
+(13,11,2, 18000000), (14,12,2, 17000000), 
+(15,16,2, 16000000), (16,17,2, 15000000), 
+(17,3,2, 14000000), (18,4,2, 13000000), 
+(19,18,2, 12000000), (20,8,2, 11000000),
+
+(21,1,3, 23000000), (22,2,3, 22000000), 
+(23,9,3, 21000000), (24,10,3, 20000000), 
+(25,13,3, 19000000), (26,14,3, 18000000), 
+(27,15,3, 17000000), (28,20,3, 16000000), 
+(29,21,3, 15000000), (30,19,3, 14000000),
+
 -- The Dark Knight Rises  Christian Bale        Bruce Wayne
 -- The Dark Knight Rises  Gary Oldman           Commissioner Gordon
 -- The Dark Knight Rises  Tom Hardy             Bane
