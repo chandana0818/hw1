@@ -89,11 +89,11 @@ CREATE TABLE person (
     last_name TEXT
 );
 
-CREATE TABLE cast (
+CREATE TABLE casting (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     person_id INTEGER,
     movie_id INTEGER,
-    billed_amount INTEGER,
+    salary INTEGER,
     movie_role TEXT
 );
 
@@ -106,37 +106,32 @@ INSERT INTO movies VALUES (1,'Batman Begins', 2005, 'PG-13', 'Christopher Nolan'
 (2,'The Dark Knight', 2008, 'PG-13', 'Christopher Nolan' ),
 (3,'The Dark Knight Rises', 2012, 'PG-13', 'Christopher Nolan' ); 
 
-INSERT INTO person VALUES (1,'Christian', 'Bale'),  (2,'Michael', 'Caine'),
-(4,'Alfred', ''), (5,'Liam', 'Neeson'), (6,'Ras', 'Al Ghul'),
-(7,'Katie', 'Holmes'), (8,'Rachel', 'Dawes'), (9,'Gary', 'Oldman'),
-(10,'Commissioner', 'Gordon'), (11,'Heath', 'Ledger'), (12,'Joker', ''),
-(13,'Tom', 'Hardy'), (14,'Bane', ''), (15,'Joseph', 'Gordon-Levitt'),
-(16,'Aaron', 'Eckhart'), (17,'Harvey', 'Dent'), (18,'Maggie', 'Gyllenhaal'),
-(19,'Selina', 'Kyle'), (20,'John', 'Blake'), (21,'Anne', 'Hathaway');
+INSERT INTO person VALUES (1,'Christian', 'Bale'),  
+(2,'Michael', 'Caine'),
+(3,'Liam', 'Neeson'), 
+(4,'Katie', 'Holmes'), 
+(5,'Gary', 'Oldman'), 
+(6,'Heath', 'Ledger'),
+(7,'Tom', 'Hardy'),  
+(8,'Joseph', 'Gordon-Levitt'),
+(9,'Aaron', 'Eckhart'), 
+(10,'Maggie', 'Gyllenhaal'),
+(11,'Anne', 'Hathaway');
 
-INSERT INTO cast VALUES (1,1,1, 15000000), (2,2,1, 13000000), 
-(3,3,1, 12000000), (4,4,1, 11000000), 
-(5,5,1, 10000000), (6,6,1, 9000000), 
-(7,7,1, 8000000), (8,8,1, 7000000), 
-(9,9,1, 6000000), (10,10,1, 5000000),
+INSERT INTO casting VALUES (1,1,1, 15000000, 'Bruce Wayne'), (2,2,1, 14000000, 'Alfred'), 
+(3,3,1, 12000000, 'Ras Al Ghul'), (4,4,1, 11000000,'Rachel Dawes'), 
+(5,5,1, 10000000, 'Commissioner Gordon'), 
+(6,1,2, 18000000, 'Bruce Wayne'), 
+(7,6,2, 17000000, 'Joker'), 
+(8,9,2, 16000000, 'Harvey Dent'), 
+(9,2,2, 15000000, 'Alfred'), 
+(10,10,2, 14000000, 'Rachel Dawes'), 
+(11,1,3, 23000000, 'Bruce Wayne'),
+(12,5,3, 18000000, 'Commissioner Gordon'), 
+(13,7,3, 17000000, 'Bane'), 
+(14,8,3, 16000000, 'John Blake'), 
+(15,11,3, 15000000, 'Selina Kyle');
 
-(11,1,2, 20000000), (12,2,2, 19000000), 
-(13,11,2, 18000000), (14,12,2, 17000000), 
-(15,16,2, 16000000), (16,17,2, 15000000), 
-(17,3,2, 14000000), (18,4,2, 13000000), 
-(19,18,2, 12000000), (20,8,2, 11000000),
-
-(21,1,3, 23000000), (22,2,3, 22000000), 
-(23,9,3, 21000000), (24,10,3, 20000000), 
-(25,13,3, 19000000), (26,14,3, 18000000), 
-(27,15,3, 17000000), (28,20,3, 16000000), 
-(29,21,3, 15000000), (30,19,3, 14000000),
-
--- The Dark Knight Rises  Christian Bale        Bruce Wayne
--- The Dark Knight Rises  Gary Oldman           Commissioner Gordon
--- The Dark Knight Rises  Tom Hardy             Bane
--- The Dark Knight Rises  Joseph Gordon-Levitt  John Blake
--- The Dark Knight Rises  Anne Hathaway         Selina Kyle
 
 
 -- Prints a header for the movies output
@@ -145,7 +140,8 @@ INSERT INTO cast VALUES (1,1,1, 15000000), (2,2,1, 13000000),
 .print ""
 
 -- The SQL statement for the movies output
--- TODO!
+.headers off
+select title, released_year,MPAA_rating, director  from movies; 
 
 -- Prints a header for the cast output
 .print ""
@@ -156,3 +152,6 @@ INSERT INTO cast VALUES (1,1,1, 15000000), (2,2,1, 13000000),
 
 -- The SQL statement for the cast output
 -- TODO!
+.headers off
+select movies.title, (person.first_name || " " || person.last_name), casting.movie_role from casting inner join person 
+on casting.person_id = person.id inner join movies on casting.movie_id = movies.id order by movies.title, casting.salary DESC;
