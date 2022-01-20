@@ -106,7 +106,7 @@ INSERT INTO movies VALUES (1,'Batman Begins', 2005, 'PG-13', 'Christopher Nolan'
 (2,'The Dark Knight', 2008, 'PG-13', 'Christopher Nolan' ),
 (3,'The Dark Knight Rises', 2012, 'PG-13', 'Christopher Nolan' ); 
 
-INSERT INTO person VALUES (1,'Christian', 'Bale'), (2,'Bruce', 'Wayne'), (3,'Michael', 'Caine'),
+INSERT INTO person VALUES (1,'Christian', 'Bale'),  (2,'Michael', 'Caine'),
 (4,'Alfred', ''), (5,'Liam', 'Neeson'), (6,'Ras', 'Al Ghul'),
 (7,'Katie', 'Holmes'), (8,'Rachel', 'Dawes'), (9,'Gary', 'Oldman'),
 (10,'Commissioner', 'Gordon'), (11,'Heath', 'Ledger'), (12,'Joker', ''),
