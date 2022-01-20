@@ -65,7 +65,7 @@
 
 -- Turns column mode on but headers off
 .mode column
-.headers off
+.headers on
 
 -- Drop existing tables, so you'll start fresh each time this script is run.
 -- TODO!
@@ -102,7 +102,36 @@ CREATE TABLE cast (
 -- Insert data into your database that reflects the sample data shown above
 -- Use hard-coded foreign key IDs when necessary
 -- TODO!
-INSERT into
+INSERT INTO movies VALUES (1,'Batman Begins', 2005, 'PG-13', 'Christopher Nolan' ), 
+(2,'The Dark Knight', 2008, 'PG-13', 'Christopher Nolan' ),
+(3,'The Dark Knight Rises', 2012, 'PG-13', 'Christopher Nolan' ); 
+
+INSERT INTO person VALUES (1,'Christian', 'Bale'), (2,'Bruce', 'Wayne'), (3,'Michael', 'Caine'),
+(4,'Alfred', ''), (5,'Liam', 'Neeson'), (6,'Ras', 'Al Ghul'),
+(7,'Katie', 'Holmes'), (8,'Rachel', 'Dawes'), (9,'Gary', 'Oldman'),
+(10,'Commissioner', 'Gordon'), (11,'Heath', 'Ledger'), (12,'Joker', ''),
+(13,'Tom', 'Hardy'), (14,'Bane', ''), (15,'Joseph', 'Gordon-Levitt'),
+(16,'Aaron', 'Eckhart'), (17,'Harvey', 'Dent'), (18,'Maggie', 'Gyllenhaal'),
+(19,'Selina', 'Kyle'), (20,'John', 'Blake'), (21,'Anne', 'Hathaway');
+
+INSERT INTO cast VALUES (1,1,1, $15,000,000, 'Actor')
+-- Batman Begins          Christian Bale        Bruce Wayne
+-- Batman Begins          Michael Caine         Alfred
+-- Batman Begins          Liam Neeson           Ra's Al Ghul
+-- Batman Begins          Katie Holmes          Rachel Dawes
+-- Batman Begins          Gary Oldman           Commissioner Gordon
+-- The Dark Knight        Christian Bale        Bruce Wayne
+-- The Dark Knight        Heath Ledger          Joker
+-- The Dark Knight        Aaron Eckhart         Harvey Dent
+-- The Dark Knight        Michael Caine         Alfred
+-- The Dark Knight        Maggie Gyllenhaal     Rachel Dawes
+-- The Dark Knight Rises  Christian Bale        Bruce Wayne
+-- The Dark Knight Rises  Gary Oldman           Commissioner Gordon
+-- The Dark Knight Rises  Tom Hardy             Bane
+-- The Dark Knight Rises  Joseph Gordon-Levitt  John Blake
+-- The Dark Knight Rises  Anne Hathaway         Selina Kyle
+
+
 -- Prints a header for the movies output
 .print "Movies"
 .print "======"
