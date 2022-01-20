@@ -140,6 +140,7 @@ INSERT INTO casting VALUES (1,1,1, 15000000, 'Bruce Wayne'), (2,2,1, 14000000, '
 .print ""
 
 -- The SQL statement for the movies output
+-- TODO!
 .headers off
 select title, released_year,MPAA_rating, director  from movies; 
 
@@ -152,6 +153,7 @@ select title, released_year,MPAA_rating, director  from movies;
 
 -- The SQL statement for the cast output
 -- TODO!
-.headers off
-select movies.title, (person.first_name || " " || person.last_name), casting.movie_role from casting inner join person 
+.headers on
+
+select movies.title, (person.first_name || " " || person.last_name) as person_name, casting.movie_role from casting inner join person 
 on casting.person_id = person.id inner join movies on casting.movie_id = movies.id order by movies.title, casting.salary DESC;
